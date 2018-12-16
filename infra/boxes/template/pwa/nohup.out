@@ -1,0 +1,47 @@
+2018-12-13T23:30:45.049+0000 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] MongoDB starting : pid=6387 port=27017 dbpath=database/ 64-bit host=penguin
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] db version v4.0.4
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] git version: f288a3bdf201007f3693c58e140056adf8b04839
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.0j  20 Nov 2018
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] modules: none
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten] build environment:
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten]     distmod: debian92
+2018-12-13T23:30:45.063+0000 I CONTROL  [initandlisten]     distarch: x86_64
+2018-12-13T23:30:45.064+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-12-13T23:30:45.064+0000 I CONTROL  [initandlisten] options: { storage: { dbPath: "database/" } }
+2018-12-13T23:30:45.064+0000 I STORAGE  [initandlisten] Detected data files in database/ created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-12-13T23:30:45.064+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1965M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-12-13T23:30:45.860+0000 I STORAGE  [initandlisten] WiredTiger message [1544743845:860681][6387:0x7efc0a560a40], txn-recover: Main recovery loop: starting at 7/728832 to 8/256
+2018-12-13T23:30:45.953+0000 I STORAGE  [initandlisten] WiredTiger message [1544743845:953094][6387:0x7efc0a560a40], txn-recover: Recovering log 7 through 8
+2018-12-13T23:30:46.038+0000 I STORAGE  [initandlisten] WiredTiger message [1544743846:38407][6387:0x7efc0a560a40], txn-recover: Recovering log 8 through 8
+2018-12-13T23:30:46.103+0000 I STORAGE  [initandlisten] WiredTiger message [1544743846:103629][6387:0x7efc0a560a40], txn-recover: Set global recovery timestamp: 0
+2018-12-13T23:30:48.015+0000 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2018-12-13T23:30:48.545+0000 I CONTROL  [initandlisten] 
+2018-12-13T23:30:48.545+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-12-13T23:30:48.545+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-12-13T23:30:48.545+0000 I CONTROL  [initandlisten] 
+2018-12-13T23:30:48.545+0000 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] 
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] 
+2018-12-13T23:30:48.546+0000 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. rlimits set to 19801 processes, 1048576 files. Number of processes should be at least 524288 : 0.5 times number of files.
+2018-12-13T23:30:49.243+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'database/diagnostic.data'
+2018-12-13T23:30:49.264+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+Listening to localhost:3000!
+2018-12-13T23:30:54.116+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:44224 #1 (1 connection now open)
+2018-12-13T23:30:54.121+0000 I NETWORK  [conn1] received client metadata from 127.0.0.1:44224 conn1: { driver: { name: "nodejs", version: "3.1.10" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.4-02480-gd44d301822f0" }, platform: "Node.js v10.13.0, LE, mongodb-core: 3.1.9" }
+2018-12-14T13:52:36.831+0000 I CONTROL  [signalProcessingThread] got signal 1 (Hangup), will terminate after current cmd ends
+2018-12-14T13:52:36.903+0000 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2018-12-14T13:52:36.903+0000 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2018-12-14T13:52:36.914+0000 I CONTROL  [signalProcessingThread] Shutting down free monitoring
+2018-12-14T13:52:36.924+0000 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2018-12-14T13:52:36.940+0000 I NETWORK  [conn1] end connection 127.0.0.1:44224 (0 connections now open)
+2018-12-14T13:52:36.943+0000 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2018-12-14T13:52:37.207+0000 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2018-12-14T13:52:37.208+0000 I CONTROL  [signalProcessingThread] now exiting
+2018-12-14T13:52:37.208+0000 I CONTROL  [signalProcessingThread] shutting down with code:0

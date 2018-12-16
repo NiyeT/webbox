@@ -1,0 +1,10 @@
+[32minfo[39m:	Files in this directory are available under the following URLs
+      applications: http://127.0.0.1:8081
+      reusable components: http://127.0.0.1:8081/components/polymer-starter-kit/
+    
+[32minfo[39m:	Files in this directory are available under the following URLs
+      applications: http://127.0.0.1:3000
+      reusable components: http://127.0.0.1:3000/components/polymer-starter-kit/
+    
+Could not resolve module specifier "@vaadin/vaadin-form-layout/vaadin-text-field.js" in file "/cress/.infra/boxes/template/pwa/client/src/home/html/app-home.js".
+Could not resolve module specifier "@vaadin/vaadin-form-layout/vaadin-form-layout.js" in file "/cress/.infra/boxes/template/pwa/client/src/home/html/app-home.js".

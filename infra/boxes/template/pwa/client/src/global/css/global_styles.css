@@ -1,0 +1,29 @@
+html,body{
+  margin:0;
+  padding:0;
+}
+
+html{
+  position:absolute;
+  overflow:hidden;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+}
+
+.centers{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vcenters{
+  display: flex;
+  align-items: center;
+}
+
+.fill{
+  height: 100%;
+  width:100%;
+}

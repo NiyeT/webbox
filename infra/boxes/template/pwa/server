@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+const mongouser=require("mongouser");
+const path=require("path");
+const argparse=require("argparse").ArgumentParser;
+const express = require('express');
+const app = express();
+
+const parser=new argparse({
+  addHelp:true,
+  description:"HTTP server to be run locally with built in user management."
+});
+parser.addArgument(["--host","-host"])
+parser.addArgument(["--port","-port"])
+parser.addArgument(["--rp","-rp","--rooth_path","-rooth_path"])
+parser.addArgument(["--db","-db","--dbport","-dbport"])
+const args=parser.parseArgs();
+
+const sd={
+  host:args.host || "localhost",
+  port:args.port || 3000,
+  public:path.join(__dirname,args.rp || "./client")
+}
+
+const mongodb={
+  userdb:mongouser.init("localhost", args.db || "27017","http://localhost:3000/db/user"),
+  format:{
+    headers:function(headers){
+      try{
+        headers.cookie=cookie_parse.parse(headers.cookie)
+        return headers;
+      }catch(err){
+        return headers;
+      }
+    }
+  }
+}
+
+app.get("/db/user",(req,res)=>{
+  mongodb.userdb.run(req,res);
+  return "GET"
+})
+
+app.post("/db/user",(req,res)=>{
+  //hand request object to user database management module
+  mongodb.userdb.run(req,res)
+  return "POST";
+})
+
+app.get('/*', (req, res) => {
+  const requestedPath=req.originalUrl=="/" ? "/index.html" : req.originalUrl;
+  const file_path=path.join(sd.public,requestedPath);
+  res.sendFile(file_path);
+})
+
+app.listen(sd.port, () => console.log(`Listening to ${sd.host}:${sd.port}!`))

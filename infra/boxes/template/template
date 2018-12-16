@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+sys.path.insert(0,"/cress/.infra/boxes")
+from pycopy import copy
+
+def importTemplate(path,files):
+    for file in files:
+        copy(path + "/" + file, ".")
+
+def getCwdFiles():
+    return os.listdir(".")
+
+def getTemplateFiles(path):
+    return os.listdir(path)
+
+def conflicts(path):
+    existingFiles={}
+    cwdFiles=getCwdFiles()
+    templateFiles=getTemplateFiles(path)
+    # print('cwdFiles:',cwdFiles)
+    # print('templateFiles:',templateFiles)
+    for file in cwdFiles:
+        existingFiles[file]=1
+    for file in templateFiles:
+        try:
+            existingFiles[file]
+            overwrite=input("There is already a file named \"" + file + "\", would you like to overwrite it? ").lower()
+            if(overwrite=="y" or overwrite=="yes"):continue
+            print("Naming conflict error.")
+            return False
+        except:
+            pass
+    return templateFiles
+
+def findTemplate(path):
+    dirname=os.path.dirname(os.path.abspath(__file__))
+    for root, dirs, files in os.walk(dirname):
+        for dir in dirs:
+            if(dir.find(path) is not -1):return root + "/" + dir
+        break
+    return False
+
+#for every argument look for a folder with its name in this files working directory, if found, check
+#for each file if placing that file in the cwd would cause a naming conflict, if it would, prompt the user to continue
+#if user continues dump the folders content into the cwd
+def gen(args):
+    for arg in args:
+        argPath=findTemplate(arg)
+        # print('argPath:',argPath)
+        if(not argPath): continue
+        overwrite=conflicts(argPath)
+        if(not overwrite):return False
+        importTemplate(argPath,overwrite)
+    print("Templates copied!")
+
+args=sys.argv[1:len(sys.argv)]
+gen(args)
